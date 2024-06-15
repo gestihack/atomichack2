@@ -51,7 +51,7 @@ def get_guides(query):
         output_fields=["text", "file", "page"],  # specifies fields to be returned
     )
 
-    return list(map(lambda x: (f"{x['entity']["file"]}, страница {x['entity']["page"]}", x['entity']["text"]), res[0]))
+    return list(map(lambda x: (f"{x['entity']['file']}, страница {x['entity']['page']}", x['entity']["text"]), res[0]))
 
 def get_answers_formatted(query):
     answers, qa = get_answers(query)
