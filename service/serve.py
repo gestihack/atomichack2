@@ -58,7 +58,7 @@ def get_answers_formatted(query):
     guides = get_guides(query)
     ranked_answers, ranked_ids, ranked_guides = rerank(query, answers, guides)
     count = len(ranked_answers)
-    format_answers = f"Вероятные ответы:\n- {'\n- '.join(ranked_answers[:3])}"
+    format_answers = f"Вероятные ответы:\n- " + '\n- '.join(ranked_answers[:3])
     return format_answers, count, list(map(lambda i: qa[i[0]] | {"score": i[1]}, ranked_ids)), ranked_guides
 
 
