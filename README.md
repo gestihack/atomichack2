@@ -17,7 +17,7 @@
 1. Разархивировать папку [`volumes`](https://drive.google.com/file/d/1tZwXX6SSyEWIRXzA8Tv37823JSWYDezY/view?usp=sharing) в корень (папка должна быть рядом с файлом docker-compose.yaml)
 1. Запустить контейнеры на хосте с установленным Docker через `docker compose up --build`
 1. При первом запуске будут загружены предобученные модели, нужно немного подождать.
-1. Импортируем данные с помощью [Milvus Backup](https://github.com/zilliztech/milvus-backup/releases): `./milvus-backup restore -n data`
+1. Импортируем данные с помощью [Milvus Backup](https://github.com/zilliztech/milvus-backup/releases) (конфиг находится в файле `backup.yaml`, поэтому достаточно запустить из рабочей директории): `./milvus-backup restore -n data`
 1. Индексируем базу данных `docker compose exec -it service python3 reindex.py`
 
 Опционально (если требуются подсказки):
