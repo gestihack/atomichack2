@@ -14,10 +14,14 @@
 Решение упаковано в докер-контейнеры для простоты запуска. (см. `docker-compose.yaml`)
 
 1. Убедиться, что все файлы `.env.example` в подпапках переименованы в `.env` и параметры в них корректны. Для стандартного деплоя ничего менять не надо.
-1. Разархивировать папку `volumes` в корень (папка должна быть рядом с файлом docker-compose.yaml)
+1. Разархивировать папку [`volumes`](https://drive.google.com/file/d/1tZwXX6SSyEWIRXzA8Tv37823JSWYDezY/view?usp=sharing) в корень (папка должна быть рядом с файлом docker-compose.yaml)
 1. Запустить контейнеры на хосте с установленным Docker через `docker compose up --build`
 1. При первом запуске будут загружены предобученные модели, нужно немного подождать.
-1. Далее, необходимо настроить OpenSearch (если требуются подсказки). Заходим в Dashboard на порту `5601`. Авторизуемся под `admin` с паролем `abobaQW#E123!`
+1. Импортируем данные с помощью [Milvus Backup](https://github.com/zilliztech/milvus-backup/releases): `./milvus-backup restore -n data`
+1. Индексируем базу данных `docker compose exec -it service python3 reindex.py`
+
+Опционально (если требуются подсказки):
+1. Далее, необходимо настроить OpenSearch. Заходим в Dashboard на порту `5601`. Авторизуемся под `admin` с паролем `abobaQW#E123!`
 1. Открываем сайд-меню, заходим в `Index Management` -> `Indexes` -> `Create Index`.
 1. Указываем название `question`, открываем `JSON Editor`, вставляем текст из файла `index-mapping.json`, нажимаем `Create`.
 1. Загружаем данные из файла `data.json`:
@@ -38,5 +42,4 @@ curl -H "Content-Type: application/x-ndjson" -POST https://localhost:9200/questi
 ## Возможные проблемы
 
 Решение не тестировалось на сервере с GPU, но теоретически должно работать без модификаций. На CPU все работает стабильно.
-LFS!!
-CUDA DRIVER!!
+LFS крайне плохо загружает файлы, поэтому volumes.zip можно скачать тут https://drive.google.com/file/d/1tZwXX6SSyEWIRXzA8Tv37823JSWYDezY/view?usp=sharing

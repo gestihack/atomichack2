@@ -48,13 +48,13 @@ services:
     env_file: "suggest-proxy/.env"
     networks:
       - llm-net
-    deploy:
-      resources:
-        reservations:
-          devices:
-            - driver: nvidia
-              count: 1
-              capabilities: [gpu]
+    # deploy:
+    #   resources:
+    #     reservations:
+    #       devices:
+    #         - driver: nvidia
+    #           count: 1
+    #           capabilities: [gpu]
   service:
     build: ./service
     env_file: "service/.env"
@@ -69,13 +69,13 @@ services:
     depends_on:
       - milvus-standalone
       - petals
-    deploy:
-      resources:
-        reservations:
-          devices:
-            - driver: nvidia
-              count: 1
-              capabilities: [gpu]
+    # deploy:
+    #   resources:
+    #     reservations:
+    #       devices:
+    #         - driver: nvidia
+    #           count: 1
+    #           capabilities: [gpu]
   etcd:
     image: quay.io/coreos/etcd:v3.5.5
     environment:
@@ -98,9 +98,9 @@ services:
     environment:
       MINIO_ACCESS_KEY: minioadmin
       MINIO_SECRET_KEY: minioadmin
-    # ports:
+    ports:
     #   - "9001:9001"
-    #   - "9000:9000"
+      - "9000:9000"
     volumes:
       - ./volumes/minio:/minio_data
     command: minio server /minio_data --console-address ":9001"
