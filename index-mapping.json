@@ -1,0 +1,72 @@
+{"properties": {
+    "category": {
+    "fields": {
+        "keyword": {
+        "type": "keyword",
+        "ignore_above": 256
+        }
+    },
+    "type": "text"
+    },
+    "date": {
+    "fields": {
+        "keyword": {
+        "type": "keyword",
+        "ignore_above": 256
+        }
+    },
+    "type": "text"
+    },
+    "description": {
+    "fields": {
+        "keyword": {
+        "type": "keyword",
+        "ignore_above": 256
+        }
+    },
+    "type": "text"
+    },
+    "id": {
+    "fields": {
+        "keyword": {
+        "type": "keyword",
+        "ignore_above": 256
+        }
+    },
+    "type": "text"
+    },
+    "question": {
+    "analyzer": "simple",
+    "preserve_separators": true,
+    "preserve_position_increments": true,
+    "max_input_length": 50,
+    "type": "completion"
+    },
+    "solution": {
+    "fields": {
+        "keyword": {
+        "type": "keyword",
+        "ignore_above": 256
+        }
+    },
+    "type": "text"
+    },
+    "tags": {
+    "fields": {
+        "keyword": {
+        "type": "keyword",
+        "ignore_above": 256
+        }
+    },
+    "type": "text"
+    },
+    "workgroup": {
+    "fields": {
+        "keyword": {
+        "type": "keyword",
+        "ignore_above": 256
+        }
+    },
+    "type": "text"
+    }
+}}  
