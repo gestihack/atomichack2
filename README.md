@@ -39,3 +39,4 @@ curl -H "Content-Type: application/x-ndjson" -POST https://localhost:9200/questi
 
 Решение не тестировалось на сервере с GPU, но теоретически должно работать без модификаций. На CPU все работает стабильно.
 LFS!!
+CUDA DRIVER!!
