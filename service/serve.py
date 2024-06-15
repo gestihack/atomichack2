@@ -9,13 +9,13 @@ from websocket import create_connection
 
 embedding_fn = model.dense.SentenceTransformerEmbeddingFunction(
     model_name='BAAI/bge-m3', # Specify the model name
-    device='cpu' # Specify the device to use, e.g., 'cpu' or 'cuda:0'
+    device=os.environ["DEVICE"] # Specify the device to use, e.g., 'cpu' or 'cuda:0'
 )
 client = MilvusClient(os.environ["MILVUS_URL"])
 
 bge_rf = model.reranker.BGERerankFunction(
     model_name="BAAI/bge-reranker-v2-m3",  # Specify the model name. Defaults to `BAAI/bge-reranker-v2-m3`.
-    device="cpu" # Specify the device to use, e.g., 'cpu' or 'cuda:0'
+    device=os.environ["DEVICE"] # Specify the device to use, e.g., 'cpu' or 'cuda:0'
 )
 
 
