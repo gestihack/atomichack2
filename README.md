@@ -1,6 +1,7 @@
 # Решение команды Gesti.tech
 
 Решение состоит из следующих модулей:
+1. [Фронтенд](https://github.com/gestihack/atomichack2-front)
 1. Сервис инфера (папка `service`)
 1. Сервис подсказок (папка `suggest-proxy`)
 1. Сервис для работы с LLM моделями Petals (папка `petals`)
